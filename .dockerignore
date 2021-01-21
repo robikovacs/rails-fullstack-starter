@@ -1,0 +1,26 @@
+# Ignore everything
+**
+
+# Allow files and directories
+!/app/**
+!/bin/**
+!/config/**
+!/db/**
+!/lib/**
+!/log/**
+!/public/**
+!/Gemfile
+!/Gemfile.lock
+!/package.json
+!/yarn.lock
+!/Rakefile
+!/Aptfile
+!/.ruby-version
+!/config.ru
+
+# Ignore unnecessary files inside allowed directories
+# This should go after the allowed directories
+**/*~
+**/*.log
+**/.DS_Store
+**/Thumbs.db

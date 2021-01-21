@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <%= strip_tags(yield(:title)) + " – " if content_for?(:title) %>
+      Rails Fullstack Starter
+    </title>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= javascript_pack_tag "application" %>
+
+    <%= yield(:head) %>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-title" content="Rails Fullstack Starter">
+  </head>
+  <body>
+
+    <%= yield %>
+
+  </body>
+</html>

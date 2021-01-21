@@ -1,0 +1,32 @@
+default: &default
+  adapter: postgresql
+  pool: <%= ENV["DATABASE_POOL"] || ENV["RAILS_MAX_THREADS"] || 5 %>
+  encoding: unicode
+  host: <%= ENV.fetch("DATABASE_HOST"){ "localhost" } %>
+  port: <%= ENV.fetch("DATABASE_PORT"){ 5432 } %>
+  username: <%= ENV["DATABASE_USER"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+
+development:
+  <<: *default
+  database: rails_fullstack_starter_development
+  min_messages: WARNING
+
+test:
+  <<: *default
+  database: rails_fullstack_starter_test
+  min_messages: WARNING
+
+container: &container
+  <<: *default
+  host: <%= ENV["DATABASE_HOST"] %>
+  port: <%= ENV["DATABASE_PORT"] %>
+  database: <%= ENV["DATABASE_NAME"] %>
+  username: <%= ENV["DATABASE_USER"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+
+stage:
+  <<: *container
+
+production:
+  <<: *container
